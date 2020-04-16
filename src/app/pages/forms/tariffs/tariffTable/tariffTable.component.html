@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Tariffs table</nb-card-header>
+            <nb-card-body>
+                <div>
+                    <button nbButton (click)="getPage(0)"><nb-icon icon="arrowhead-left-outline"></nb-icon></button>
+                    <button nbButton (click)="getPage(pageNumber-1)"><nb-icon icon="arrow-ios-back-outline"></nb-icon></button>
+                    <input type="text" nbInput placeholder="page number" [(ngModel)]="pageNumber">
+                    <button nbButton (click)="getPage(pageNumber)"><nb-icon icon="checkmark-circle-2-outline"></nb-icon></button>
+                    <button nbButton (click)="getPage(pageNumber+1)"><nb-icon icon="arrow-ios-forward-outline"></nb-icon></button>
+                    <button nbButton (click)="getPage(pageTotal)"><nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+                    <p></p>
+                </div>
+                <table width="100%" style="text-align: center">
+                    <thead>
+                        <tr>
+                            <th width="25%">Id</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Tariff type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tariff of data; index as i;">
+                            <th><a href="{{Configuration.host}}/pages/forms/tariffs/single/{{tariff.id}}">{{tariff.id}}</a></th>
+                            <th>{{tariff.tariffName}}</th>
+                            <th>{{tariff.price}}</th>
+                            <th>{{tariff.tariffType}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <p></p>
+                <button nbButton status="primary" [fullWidth]="true" (click)="createNew($event)">
+                    Create new tariff
+                </button>
+                <p></p>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Tariff info</nb-card-header>
+            <nb-card-body>
+                <input type="text" nbInput fullWidth placeholder="Id" [(ngModel)]="entity.id" disabled>
+                <input type="text" nbInput fullWidth placeholder="Name" [(ngModel)]="entity.tariffName">
+                <textarea rows="5" nbInput fullWidth placeholder="Description"
+                          [(ngModel)]="entity.description"></textarea>
+                <input type="text" nbInput fullWidth placeholder="Price" [(ngModel)]="entity.price">
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-6">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Tariff terms</nb-card-header>
+            <nb-card-body>
+                <input type="text" nbInput fullWidth placeholder="Tariff type" [(ngModel)]="entity.type" disabled>
+                <div *ngIf="entity.type == TariffType.PER_CALL">
+                    <input type="text" nbInput fullWidth placeholder="Calls available" [(ngModel)]="entity.callsAvailable">
+                </div>
+                <div *ngIf="entity.type == TariffType.PER_TIME">
+                    <input type="text" nbInput fullWidth placeholder="Time available (days)" [(ngModel)]="entity.timeAvailableDay">
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <button nbButton fullWidth status="primary" (click)="saveChanges()">Save changes</button>
+</div>

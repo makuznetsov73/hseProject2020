@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-6">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Tariff info</nb-card-header>
+            <nb-card-body>
+                <input type="text" nbInput fullWidth placeholder="Id/login" [(ngModel)]="entity.id">
+                <input type="text" nbInput fullWidth placeholder="Password" [(ngModel)]="entity.password">
+                <input type="text" nbInput fullWidth placeholder="Balance" [(ngModel)]="entity.balance">
+                <input type="text" nbInput fullWidth placeholder="Email" [(ngModel)]="entity.email">
+                <input type="text" nbInput fullWidth placeholder="Phone number" [(ngModel)]="entity.phoneNumber">
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-md-6">
+        <nb-card class="inline-form-card">
+            <nb-card-header>Tariff terms</nb-card-header>
+            <nb-card-body>
+                <div class="our-confirmation">
+                    <input type="text" nbInput fullWidth placeholder="Tariff Id" [(ngModel)]="entity.tariffId">
+                    <button nbButton fullWidth status="primary" (click)="getTariffInfo()">Confirm your choice</button>
+                </div>
+                <div *ngIf="isTariffOk === true">
+                    <input type="text" nbInput fullWidth placeholder="Tariff name" [(ngModel)]="entity.tariffName" disabled>
+                    <input type="text" nbInput fullWidth placeholder="Tariff type" [(ngModel)]="entity.tariffType" disabled>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <button nbButton fullWidth status="primary" (click)="addTariff()">Add customer</button>
+</div>

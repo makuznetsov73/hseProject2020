@@ -15,4 +15,9 @@ dependencies {
     compile group: 'io.undertow', name: 'undertow-core', version: '2.0.29.Final'
     compile group: 'org.springframework.boot', name: 'spring-boot', version: '2.2.4.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.2.5.RELEASE'
+    
+    compile group: 'joda-time', name: 'joda-time', version: '2.10.5'
+
+    compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
 }
