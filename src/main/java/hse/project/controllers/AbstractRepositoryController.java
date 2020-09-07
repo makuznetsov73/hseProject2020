@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201"})
 public abstract class AbstractRepositoryController<T extends A, A, M extends MapperInterface<A>, R extends MongoRepository<T, String>> {
     
     private R repository;

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/admin/customer")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201"})
 public class CustomerController
     extends AbstractRepositoryPrevController<MongoCustomer, Customer, CustomerPreview, CustomerMapper, CustomerRepositoryInterface> {
     

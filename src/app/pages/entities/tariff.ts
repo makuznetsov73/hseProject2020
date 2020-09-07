@@ -17,6 +17,8 @@ export class Tariff {
     public constructor() {}
 }
 
+// export class Tariff
+
 export class TariffPerCall extends Tariff {
     callsAvailable: number;
 }
