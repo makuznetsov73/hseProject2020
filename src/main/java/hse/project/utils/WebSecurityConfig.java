@@ -1,30 +1,22 @@
 package hse.project.utils;
 
-import hse.project.authentication.CustomCustomerDetailsService;
-import hse.project.authentication.JwtFilter;
+import hse.project.authentication.JwtConfigurer;
+import hse.project.authentication.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.BeanIds;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
+	/*@Autowired
 	private CustomCustomerDetailsService userDetailsService;
 	
 	@Autowired
@@ -51,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf()
 			.disable()
 			.authorizeRequests()
-			.antMatchers("/authenticate").permitAll()
+			.antMatchers("/authenticate_user").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling()
@@ -60,21 +52,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 	}
-	
-	/*@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-			.antMatchers("/", "/home").permitAll()
-			.anyRequest().authenticated()
-			.and()
-			.formLogin()
-			.loginPage("/login")
-			.permitAll()
-			.and()
-			.logout()
-			.permitAll();
-	}*/
 	
 	@Bean
 	@Override
@@ -87,5 +64,44 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.build();
 		
 		return new InMemoryUserDetailsManager(user);
+	}*/
+	
+	private final JwtTokenProvider jwtTokenProvider;
+	
+	private static final String USER_ENDPOINT = "/user/**";
+	private static final String LOGIN_ENDPOINT = "/authenticate_user";
+	
+	@Autowired
+	public WebSecurityConfig(JwtTokenProvider jwtTokenProvider) {
+		this.jwtTokenProvider = jwtTokenProvider;
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Bean
+	public static NoOpPasswordEncoder passwordEncoder() {
+		return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	}
+	
+	@Bean
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			.httpBasic().disable()
+			.csrf().disable()
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and()
+			.authorizeRequests()
+			.antMatchers("/admin/**").permitAll()
+			.antMatchers(LOGIN_ENDPOINT).permitAll()
+			.antMatchers(USER_ENDPOINT).hasRole("USER")
+			.anyRequest().authenticated()
+			.and()
+			.apply(new JwtConfigurer(jwtTokenProvider));
+	}
+	
 }

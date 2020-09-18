@@ -1,5 +1,6 @@
-package hse.project.controllers;
+package hse.project.controllers.admincontrollers;
 
+import hse.project.controllers.AbstractRepositoryPrevController;
 import hse.project.entities.Response;
 import hse.project.entities.api.TariffMapper;
 import hse.project.entities.api.TariffPreview;
@@ -17,10 +18,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/admin/tariff")
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201"})
-public class TariffController
+public class AdminTariffController
     extends AbstractRepositoryPrevController<AbstractMongoTariff, Tariff, TariffPreview, TariffMapper, TariffRepositoryInterface> {
 
-    TariffController(TariffRepositoryInterface tariffRepository) {
+    AdminTariffController(TariffRepositoryInterface tariffRepository) {
         setRepository(tariffRepository);
         setMapper(new TariffMapper());
     }

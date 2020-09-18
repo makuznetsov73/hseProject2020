@@ -21,7 +21,7 @@ dependencies {
 
     compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
 
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.3.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.7.RELEASE'
 
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
 

@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import {StartComponent} from './startComponent/start.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {StartComponent} from './startComponent/start.component';
     NbMenuModule,
     MiscellaneousModule,
     NbCardModule,
+    FormsModule,
   ],
   declarations: [
     PagesComponent,

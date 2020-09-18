@@ -8,6 +8,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -54,7 +55,7 @@ const config: ExtraOptions = {
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
+  imports: [FormsModule, RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {

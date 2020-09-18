@@ -1,5 +1,6 @@
-package hse.project.controllers;
+package hse.project.controllers.admincontrollers;
 
+import hse.project.controllers.AbstractRepositoryPrevController;
 import hse.project.entities.Response;
 import hse.project.entities.api.CustomerMapper;
 import hse.project.entities.api.CustomerPreview;
@@ -15,12 +16,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/admin/customer")
 @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:4201"})
-public class CustomerController
+public class AdminCustomerController
     extends AbstractRepositoryPrevController<MongoCustomer, Customer, CustomerPreview, CustomerMapper, CustomerRepositoryInterface> {
     
     private TariffRepositoryInterface tariffRepository;
     
-    CustomerController(CustomerRepositoryInterface customerRepository, TariffRepositoryInterface tariffRepository) {
+    AdminCustomerController(CustomerRepositoryInterface customerRepository, TariffRepositoryInterface tariffRepository) {
         setRepository(customerRepository);
         setMapper(new CustomerMapper());
         this.tariffRepository = tariffRepository;

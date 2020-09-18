@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import {StartComponent} from './startComponent/start.component';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [{
   path: '',
@@ -31,7 +32,7 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [FormsModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {

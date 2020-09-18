@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface CustomerRepositoryInterface extends MongoRepository<MongoCustomer, String> {
 	
-	List<Customer> findByName(String name);
+	Customer findByLogin(String login);
 }
