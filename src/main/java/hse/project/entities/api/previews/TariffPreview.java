@@ -1,4 +1,4 @@
-package hse.project.entities.api;
+package hse.project.entities.api.previews;
 
 import hse.project.entities.prototypes.TariffType;
 

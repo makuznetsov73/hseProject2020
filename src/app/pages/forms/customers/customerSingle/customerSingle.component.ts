@@ -44,9 +44,7 @@ export class CustomerSingleComponent {
 
     public saveChanges() {
         if (this.entity.tariffType === TariffType.PER_TIME) {
-            console.log(11);
             if (!this.isTariffOk) {
-                console.log()
                 this.entity.tariffId = null;
                 this.entity.tariffName = null;
                 this.entity.tariffType = null;

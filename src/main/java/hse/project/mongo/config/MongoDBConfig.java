@@ -1,11 +1,11 @@
 package hse.project.mongo.config;
 
-import hse.project.mongo.repository.CustomerRepositoryInterface;
+import hse.project.mongo.repository.TariffCustomerRepositoryInterface;
 import hse.project.mongo.repository.TariffRepositoryInterface;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@EnableMongoRepositories(basePackageClasses = {TariffRepositoryInterface.class, CustomerRepositoryInterface.class})
+@EnableMongoRepositories(basePackageClasses = {TariffRepositoryInterface.class, TariffCustomerRepositoryInterface.class})
 @Configuration
 public class MongoDBConfig {
 

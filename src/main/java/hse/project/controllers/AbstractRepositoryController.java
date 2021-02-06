@@ -30,12 +30,12 @@ public abstract class AbstractRepositoryController<T extends A, A, M extends Map
         return entity.map(t -> new Response<>(t, true)).orElseGet(Response::new);
     }
     
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/createEntity", method = RequestMethod.POST)
     public void createEntity(@RequestBody T entity) {
     
     }
     
-    @RequestMapping(value = "/change", method = RequestMethod.POST)
+    @RequestMapping(value = "/changeEntity", method = RequestMethod.POST)
     public void changeEntity(@RequestBody T entity) {
     
     }

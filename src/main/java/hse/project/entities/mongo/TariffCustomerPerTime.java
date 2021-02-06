@@ -1,6 +1,6 @@
 package hse.project.entities.mongo;
 
-public class CustomerPerTime extends MongoCustomer {
+public class TariffCustomerPerTime extends MongoTariffCustomer {
 	
 	private TariffPerTimeState tariffState;
 	

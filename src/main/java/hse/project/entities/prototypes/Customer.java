@@ -16,12 +16,6 @@ public interface Customer {
     
     public String getEmail();
     
-    public String getTariffId();
-    
-    public String getTariffName();
-    
-    public TariffType getTariffType();
-    
     public boolean isBlocked();
     
     public void setName(String name);
@@ -33,12 +27,6 @@ public interface Customer {
     public void setEmail(String email);
     
     public void setPhoneNumber(String phoneNumber);
-    
-    public void setTariffId(String tariffId);
-    
-    public void setTariffType(TariffType tariffType);
-    
-    public void setTariffName(String tariffName);
     
     public void setBlocked(boolean blocked);
     

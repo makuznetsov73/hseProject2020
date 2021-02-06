@@ -1,5 +1,6 @@
-package hse.project.entities.api;
+package hse.project.entities.api.mappers;
 
+import hse.project.entities.api.previews.TariffPreview;
 import hse.project.entities.prototypes.MapperPrevInterface;
 import hse.project.entities.prototypes.Tariff;
 

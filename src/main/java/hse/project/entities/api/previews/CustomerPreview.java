@@ -1,12 +1,10 @@
-package hse.project.entities.api;
+package hse.project.entities.api.previews;
 
 public class CustomerPreview {
 	
 	private String id;
 	
 	private String login;
-	
-	private String tariffId;
 	
 	private double balance;
 	
@@ -32,13 +30,5 @@ public class CustomerPreview {
 	
 	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-	
-	public String getTariffId() {
-		return tariffId;
-	}
-	
-	public void setTariffId(String tariffId) {
-		this.tariffId = tariffId;
 	}
 }

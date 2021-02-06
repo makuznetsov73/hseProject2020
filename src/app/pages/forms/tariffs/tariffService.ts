@@ -9,7 +9,7 @@ export class TariffService extends EntityService<Tariff, TariffPreview> {
 
     constructor(http: HttpClient, urlPath: string) {
         super(http, urlPath);
-
+        console.log();
     }
 
     createTariffPerTime(entity: TariffPerTime): Observable<RequestResponse<TariffPreview>> {

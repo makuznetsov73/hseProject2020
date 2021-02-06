@@ -26,6 +26,18 @@ dependencies {
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
 
     compileOnly 'org.projectlombok:lombok:1.18.12'
+
+    compile group: 'com.microsoft.azure', name: 'azure', version: '1.36.3'
+    compile group: 'com.microsoft.azure', name: 'azure-mgmt-compute', version: '1.36.3'
+    compile group: 'com.microsoft.azure', name: 'azure-mgmt-resources', version: '1.36.3'
+    compile group: 'com.microsoft.azure', name: 'azure-mgmt-network', version: '1.36.3'
+
+    compile group: 'com.squareup.okio', name: 'okio', version: '2.7.0'
+    compile group: 'com.nimbusds', name: 'nimbus-jose-jwt', version: '8.19'
+    compile group: 'net.minidev', name: 'json-smart', version: '2.3'
+    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+
+
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.12'

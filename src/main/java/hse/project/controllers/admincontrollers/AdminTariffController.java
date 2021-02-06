@@ -2,8 +2,8 @@ package hse.project.controllers.admincontrollers;
 
 import hse.project.controllers.AbstractRepositoryPrevController;
 import hse.project.entities.Response;
-import hse.project.entities.api.TariffMapper;
-import hse.project.entities.api.TariffPreview;
+import hse.project.entities.api.mappers.TariffMapper;
+import hse.project.entities.api.previews.TariffPreview;
 import hse.project.entities.mongo.AbstractMongoTariff;
 import hse.project.entities.mongo.MongoTariffPerCall;
 import hse.project.entities.mongo.MongoTariffPerTime;
@@ -12,8 +12,6 @@ import hse.project.entities.prototypes.TariffType;
 import hse.project.mongo.repository.TariffRepositoryInterface;
 import org.joda.time.DateTime;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/admin/tariff")

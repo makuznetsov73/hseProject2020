@@ -1,13 +1,13 @@
-package hse.project.entities.api;
+package hse.project.entities.api.mappers;
 
-import hse.project.entities.prototypes.Customer;
-import hse.project.entities.prototypes.MapperInterface;
+import hse.project.entities.api.previews.TariffCustomerPreview;
 import hse.project.entities.prototypes.MapperPrevInterface;
+import hse.project.entities.prototypes.TariffCustomer;
 
-public class CustomerMapper implements MapperPrevInterface<Customer, CustomerPreview> {
+public class TariffCustomerMapper implements MapperPrevInterface<TariffCustomer, TariffCustomerPreview> {
 	
 	@Override
-	public void map(Customer source, Customer result) {
+	public void map(TariffCustomer source, TariffCustomer result) {
 		result.setBalance(source.getBalance());
 		result.setBlocked(source.isBlocked());
 		result.setEmail(source.getEmail());
@@ -21,8 +21,8 @@ public class CustomerMapper implements MapperPrevInterface<Customer, CustomerPre
 	}
 	
 	@Override
-	public CustomerPreview mapToPreview(Customer source) {
-		CustomerPreview preview = new CustomerPreview();
+	public TariffCustomerPreview mapToPreview(TariffCustomer source) {
+		TariffCustomerPreview preview = new TariffCustomerPreview();
 		preview.setBalance(source.getBalance());
 		preview.setId(source.getId());
 		preview.setLogin(source.getLogin());

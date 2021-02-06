@@ -1,8 +1,8 @@
 package hse.project.controllers.usercontrollers;
 
 import hse.project.controllers.AbstractRepositoryPrevController;
-import hse.project.entities.api.TariffMapper;
-import hse.project.entities.api.TariffPreview;
+import hse.project.entities.api.mappers.TariffMapper;
+import hse.project.entities.api.previews.TariffPreview;
 import hse.project.entities.mongo.AbstractMongoTariff;
 import hse.project.entities.prototypes.Tariff;
 import hse.project.mongo.repository.TariffRepositoryInterface;
